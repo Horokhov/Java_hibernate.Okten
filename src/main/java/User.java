@@ -1,6 +1,7 @@
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,6 +15,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ElementCollection
+    private List<String> skills;
     private String name;
     @Column(
             name = "secondName",
@@ -25,9 +28,15 @@ public class User {
     )
     private String surname;
 
-    public User(String name, String surname) {
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+
+
+    public User(String name, String surname,Gender gender) {
         this.name = name;
         this.surname = surname;
+        this.gender=gender;
     }
 
     public User(String name) {
