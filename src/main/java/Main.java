@@ -5,6 +5,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -30,7 +31,7 @@ public class Main {
         session.save(new User("taras"));
         session.save(new User("ananas"));
         session.save(new User("kokos"));
-        session.save(new User("max", "golov",Gender.MALE));
+        session.save(new User("max", "golov",Gender.MALE, Arrays.asList("Java","Python")));
         session.getTransaction().commit();
 
         List<User> list = session.createQuery("select u from User u", User.class).list();

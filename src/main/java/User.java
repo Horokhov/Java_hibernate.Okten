@@ -33,10 +33,11 @@ public class User {
 
 
 
-    public User(String name, String surname,Gender gender) {
+    public User(String name, String surname,Gender gender,List<String> skills) {
         this.name = name;
         this.surname = surname;
         this.gender=gender;
+        this.skills=skills;
     }
 
     public User(String name) {
