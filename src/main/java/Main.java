@@ -19,7 +19,7 @@ public class Main {
 
         Metadata metadata =
                 new MetadataSources(serviceRegistry)
-                        .addAnnotatedClass(User.class)
+                        .addAnnotatedClass(Cars.class)
                         .getMetadataBuilder()
                         .build();
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
@@ -28,21 +28,10 @@ public class Main {
 
         session.beginTransaction();
 
-        session.save(new User("taras"));
-        session.save(new User("ananas"));
-        session.save(new User("kokos"));
-        session.save(new User("max", "golov",Gender.MALE, Arrays.asList("Java","Python")));
-        session.getTransaction().commit();
-
-        List<User> list = session.createQuery("select u from User u", User.class).list();
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        User user = session.find(User.class, 2);
-        System.out.println(user);
-
-
-
-
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         session.close();
         sessionFactory.close();
     }
