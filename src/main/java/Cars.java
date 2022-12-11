@@ -15,7 +15,7 @@ public class Cars {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long number;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Availability availability;
 
     private String model;
