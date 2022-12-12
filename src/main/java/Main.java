@@ -6,7 +6,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import java.util.Arrays;
-import java.util.List;
 
 
 public class Main {
@@ -19,8 +18,8 @@ public class Main {
 
         Metadata metadata =
                 new MetadataSources(serviceRegistry)
-                        .addAnnotatedClass(Cars.class)
-                        .addAnnotatedClass(Drivers.class)
+                        .addAnnotatedClass(Car.class)
+                        .addAnnotatedClass(Driver.class)
                         .addAnnotatedClass(License.class)
                         .addAnnotatedClass(Salon.class)
                         .getMetadataBuilder()
@@ -34,14 +33,14 @@ public class Main {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Cars(
-                "KA4545", "BMW X7", Availability.YES,Arrays.asList(new Drivers(
+        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Car(
+                "KA4545", "BMW X7", Availability.YES,Arrays.asList(new Driver(
                         "Max","Johnson",new License("00842188421"),Arrays.asList())
         ))
         )));
 
-        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Cars(
-                        "BK5543", "Skoda Fabia", Availability.NO, Arrays.asList(new Drivers(
+        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Car(
+                        "BK5543", "Skoda Fabia", Availability.NO, Arrays.asList(new Driver(
                         "Rick","Ablazovenko",new License("0084838421"),Arrays.asList())
                 ))
         )));

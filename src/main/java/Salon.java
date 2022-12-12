@@ -20,12 +20,12 @@ public class Salon {
     private String address;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinTable(name = "salon_cars", joinColumns = @JoinColumn(name = "salon_id"),
-                                    inverseJoinColumns = @JoinColumn(name = "cars_id"))
-    private List<Cars> cars;
+    @JoinTable(name = "salon_car", joinColumns = @JoinColumn(name = "salon_id"),
+                                    inverseJoinColumns = @JoinColumn(name = "car_id"))
+    private List<Car> car;
 
-    public Salon(String address, List<Cars> cars) {
+    public Salon(String address, List<Car> car) {
         this.address = address;
-        this.cars = cars;
+        this.car = car;
     }
 }

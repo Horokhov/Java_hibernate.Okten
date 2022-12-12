@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 
 @Entity
-public class Cars {
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,14 +25,14 @@ public class Cars {
     private Availability availability;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "cars_drivers", joinColumns = @JoinColumn(name = "cars_id"),
-                                      inverseJoinColumns = @JoinColumn(name = "drivers_id"))
-    private List<Drivers> drivers;
+    @JoinTable(name = "car_driver", joinColumns = @JoinColumn(name = "car_id"),
+                                      inverseJoinColumns = @JoinColumn(name = "driver_id"))
+    private List<Driver> driver;
 
-    public Cars(String number, String model, Availability availability, List<Drivers> drivers) {
+    public Car(String number, String model, Availability availability, List<Driver> driver) {
         this.number = number;
         this.model = model;
         this.availability = availability;
-        this.drivers = drivers;
+        this.driver = driver;
     }
 }
