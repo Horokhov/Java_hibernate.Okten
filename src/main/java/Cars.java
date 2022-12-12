@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +23,10 @@ public class Cars {
 
     @Enumerated(EnumType.STRING)
     private Availability availability;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "cars_drivers", joinColumns = @JoinColumn(name = "cars_id"),
+                                      inverseJoinColumns = @JoinColumn(name = "drivers_id"))
+    private List<Drivers> drivers;
 
 }
