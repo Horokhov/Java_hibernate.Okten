@@ -20,4 +20,9 @@ public class License {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "license")
     private Drivers drivers;
+
+    public License(String series, Drivers drivers) {
+        this.series = series;
+        this.drivers = drivers;
+    }
 }

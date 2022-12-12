@@ -23,4 +23,9 @@ public class Salon {
     @JoinTable(name = "salon_cars", joinColumns = @JoinColumn(name = "salon_id"),
                                     inverseJoinColumns = @JoinColumn(name = "cars_id"))
     private List<Cars> cars;
+
+    public Salon(String address, List<Cars> cars) {
+        this.address = address;
+        this.cars = cars;
+    }
 }
