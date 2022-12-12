@@ -20,6 +20,9 @@ public class Main {
         Metadata metadata =
                 new MetadataSources(serviceRegistry)
                         .addAnnotatedClass(Cars.class)
+                        .addAnnotatedClass(Drivers.class)
+                        .addAnnotatedClass(License.class)
+                        .addAnnotatedClass(Salon.class)
                         .getMetadataBuilder()
                         .build();
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();

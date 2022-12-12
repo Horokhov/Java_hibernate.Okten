@@ -11,16 +11,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 @Entity
-public class Cars {
+public class Drivers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String number;
+    private String name;
 
-    private String model;
+    private String surname;
 
-    @Enumerated(EnumType.STRING)
-    private Availability availability;
-
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "license_id", referencedColumnName = "id")
+    private License license;
 }
