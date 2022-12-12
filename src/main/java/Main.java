@@ -34,6 +34,18 @@ public class Main {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Cars(
+                "KA4545", "BMW X7", Availability.YES,Arrays.asList(new Drivers(
+                        "Max","Johnson",new License("00842188421"),Arrays.asList())
+        ))
+        )));
+
+        session.save(new Salon("Lincoln 45 street",Arrays.asList(new Cars(
+                        "BK5543", "Skoda Fabia", Availability.NO, Arrays.asList(new Drivers(
+                        "Rick","Ablazovenko",new License("0084838421"),Arrays.asList())
+                ))
+        )));
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         session.close();
         sessionFactory.close();
