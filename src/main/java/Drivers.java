@@ -15,7 +15,7 @@ import java.util.List;
 public class Drivers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String name;
 
@@ -29,4 +29,11 @@ public class Drivers {
     @JoinTable(name = "cars_drivers", joinColumns = @JoinColumn(name = "drivers_id"),
             inverseJoinColumns = @JoinColumn(name = "cars_id"))
     private List<Cars> cars;
+
+    public Drivers(String name, String surname, License license, List<Cars> cars) {
+        this.name = name;
+        this.surname = surname;
+        this.license = license;
+        this.cars = cars;
+    }
 }
