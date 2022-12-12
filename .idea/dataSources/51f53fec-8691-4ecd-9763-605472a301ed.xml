@@ -1028,56 +1028,245 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="297" parent="289" name="user_skills">
+    <table id="297" parent="289" name="cars">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="298" parent="289" name="user_table">
+    <table id="298" parent="289" name="cars_drivers">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="299" parent="297" name="User_id">
+    <table id="299" parent="289" name="drivers">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="300" parent="289" name="license">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="301" parent="289" name="salon">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="302" parent="289" name="salon_cars">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="303" parent="289" name="user_skills">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="304" parent="289" name="user_table">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="305" parent="297" name="id">
+      <AutoIncrement>3</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="300" parent="297" name="skills">
+    <column id="306" parent="297" name="availability">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <foreign-key id="301" parent="297" name="FKe41jbpkpffceb56q8q8pif2ei">
+    <column id="307" parent="297" name="model">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="308" parent="297" name="number">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <index id="309" parent="297" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="310" parent="297" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="311" parent="298" name="drivers_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="312" parent="298" name="cars_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="313" parent="298" name="FKs7kx399kum1g4x8jm31sr5e3j">
+      <ColNames>drivers_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>drivers</RefTableName>
+    </foreign-key>
+    <foreign-key id="314" parent="298" name="FKp8cfe3gj76wc8j46q3pbpusdr">
+      <ColNames>cars_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>cars</RefTableName>
+    </foreign-key>
+    <index id="315" parent="298" name="FKs7kx399kum1g4x8jm31sr5e3j">
+      <ColNames>drivers_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="316" parent="298" name="FKp8cfe3gj76wc8j46q3pbpusdr">
+      <ColNames>cars_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="317" parent="299" name="id">
+      <AutoIncrement>3</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="318" parent="299" name="name">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="319" parent="299" name="surname">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="320" parent="299" name="license_id">
+      <DataType>int|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="321" parent="299" name="FKd5k6ex35fvajrev2tdwq51urk">
+      <ColNames>license_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>license</RefTableName>
+    </foreign-key>
+    <index id="322" parent="299" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="323" parent="299" name="FKd5k6ex35fvajrev2tdwq51urk">
+      <ColNames>license_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="324" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="325" parent="300" name="id">
+      <AutoIncrement>3</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="326" parent="300" name="series">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <index id="327" parent="300" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="328" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="329" parent="301" name="id">
+      <AutoIncrement>3</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="330" parent="301" name="address">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <index id="331" parent="301" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="332" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="333" parent="302" name="salon_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="334" parent="302" name="cars_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="335" parent="302" name="FK73eo05ntua3b3pflwudu3949q">
+      <ColNames>salon_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>salon</RefTableName>
+    </foreign-key>
+    <foreign-key id="336" parent="302" name="FKsh13go3ly3gb3ng81fomvxotl">
+      <ColNames>cars_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>cars</RefTableName>
+    </foreign-key>
+    <index id="337" parent="302" name="UK_c4mc4oe2735yk888ylwm9dari">
+      <ColNames>cars_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="338" parent="302" name="FK73eo05ntua3b3pflwudu3949q">
+      <ColNames>salon_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="339" parent="302" name="UK_c4mc4oe2735yk888ylwm9dari">
+      <UnderlyingIndexName>UK_c4mc4oe2735yk888ylwm9dari</UnderlyingIndexName>
+    </key>
+    <column id="340" parent="303" name="User_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="341" parent="303" name="skills">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="342" parent="303" name="FKe41jbpkpffceb56q8q8pif2ei">
       <ColNames>User_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>user_table</RefTableName>
     </foreign-key>
-    <index id="302" parent="297" name="FKe41jbpkpffceb56q8q8pif2ei">
+    <index id="343" parent="303" name="FKe41jbpkpffceb56q8q8pif2ei">
       <ColNames>User_id</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="303" parent="298" name="id">
+    <column id="344" parent="304" name="id">
       <AutoIncrement>4</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="304" parent="298" name="gender">
+    <column id="345" parent="304" name="gender">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="305" parent="298" name="name">
+    <column id="346" parent="304" name="name">
       <DataType>varchar(255)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="306" parent="298" name="secondName">
+    <column id="347" parent="304" name="secondName">
       <DataType>varchar(250)|0s</DataType>
       <Position>4</Position>
     </column>
-    <index id="307" parent="298" name="PRIMARY">
+    <index id="348" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="308" parent="298" name="PRIMARY">
+    <key id="349" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
